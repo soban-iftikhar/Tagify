@@ -37,20 +37,6 @@
                 </div>
             </header>
             <h1 class="dashboard-title">Analytics</h1>
-            <div class="chart-grid">
-                <div class="chart-container">
-                    <h2 class="chart-title">Tag Distribution</h2>
-                    <canvas id="tagDistributionChart"></canvas>
-                </div>
-                <div class="chart-container">
-                    <h2 class="chart-title">Classification Accuracy Over Time</h2>
-                    <canvas id="accuracyChart"></canvas>
-                </div>
-                <div class="chart-container">
-                    <h2 class="chart-title">Image Categories</h2>
-                    <canvas id="categoryChart"></canvas>
-                </div>
-            </div>
             <div class="print-section">
                 <h2>Print Reports</h2>
                 <div class="dropdown">
@@ -64,9 +50,24 @@
                     </div>
                 </div>
             </div>
+            <div class="chart-grid">
+                <div class="chart-container full-width">
+                    <h2 class="chart-title">Tag Distribution</h2>
+                    <canvas id="tagDistributionChart"></canvas>
+                </div>
+            </div>
+            <div class="chart-grid">
+                <div class="chart-container">
+                    <h2 class="chart-title">Classification Accuracy Over Time</h2>
+                    <canvas id="accuracyChart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h2 class="chart-title">Image Categories</h2>
+                    <canvas id="categoryChart"></canvas>
+                </div>
+            </div>
         </main>
     </div>
     <script src="script.js"></script>
 </body>
 </html>
-
