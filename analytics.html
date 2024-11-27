@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <div class="container">
@@ -19,7 +20,7 @@
                     <li class="nav-item"><a href="team.html" class="nav-link"><i class="fas fa-users"></i> Team</a></li>
                     <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-cog"></i> Settings</a></li>
                     <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-question-circle"></i> Help</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                    <li class="nav-item"><a href="login.html" class="nav-link"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                 </ul>
             </nav>
         </aside>
@@ -30,24 +31,42 @@
                     <button class="btn btn-primary"><i class="fas fa-search"></i></button>
                 </div>
                 <div class="user-menu">
+                    <button id="darkModeToggle" class="btn btn-primary"><i class="fas fa-moon"></i></button>
                     <button class="btn btn-primary"><i class="fas fa-bell"></i></button>
                     <img src="https://via.placeholder.com/40" alt="User Avatar" class="user-avatar">
                 </div>
             </header>
             <h1 class="dashboard-title">Analytics</h1>
-            <div class="chart-container mb-20">
-                <h2 class="chart-title">User Engagement Over Time</h2>
-                <p>Chart placeholder - User engagement trend</p>
+            <div class="chart-grid">
+                <div class="chart-container">
+                    <h2 class="chart-title">Tag Distribution</h2>
+                    <canvas id="tagDistributionChart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h2 class="chart-title">Classification Accuracy Over Time</h2>
+                    <canvas id="accuracyChart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h2 class="chart-title">Image Categories</h2>
+                    <canvas id="categoryChart"></canvas>
+                </div>
             </div>
-            <div class="chart-container mb-20">
-                <h2 class="chart-title">Hashtag Performance</h2>
-                <p>Chart placeholder - Top performing hashtags</p>
-            </div>
-            <div class="chart-container">
-                <h2 class="chart-title">User Demographics</h2>
-                <p>Chart placeholder - User age and location distribution</p>
+            <div class="print-section">
+                <h2>Print Reports</h2>
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle">
+                        Select Report Format
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item">PDF</a>
+                        <a href="#" class="dropdown-item">DOC</a>
+                        <a href="#" class="dropdown-item">CSV</a>
+                    </div>
+                </div>
             </div>
         </main>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
+

@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <div class="container">
@@ -19,7 +20,7 @@
                     <li class="nav-item"><a href="team.html" class="nav-link"><i class="fas fa-users"></i> Team</a></li>
                     <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-cog"></i> Settings</a></li>
                     <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-question-circle"></i> Help</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                    <li class="nav-item"><a href="login.html" class="nav-link"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                 </ul>
             </nav>
         </aside>
@@ -30,6 +31,7 @@
                     <button class="btn btn-primary"><i class="fas fa-search"></i></button>
                 </div>
                 <div class="user-menu">
+                    <button id="darkModeToggle" class="btn btn-primary"><i class="fas fa-moon"></i></button>
                     <button class="btn btn-primary"><i class="fas fa-bell"></i></button>
                     <img src="https://via.placeholder.com/40" alt="User Avatar" class="user-avatar">
                 </div>
@@ -37,76 +39,93 @@
             <h1 class="dashboard-title">Dashboard</h1>
             <div class="stats-grid">
                 <div class="stat-card">
-                    <h3 class="stat-title">Total Users</h3>
-                    <p class="stat-value">34,567</p>
-                    <p class="stat-change"><i class="fas fa-arrow-up"></i> 12% vs last month</p>
-                </div>
-                <div class="stat-card">
-                    <h3 class="stat-title">Active Users</h3>
-                    <p class="stat-value">23,456</p>
-                    <p class="stat-change negative"><i class="fas fa-arrow-down"></i> 8% vs last month</p>
-                </div>
-                <div class="stat-card">
-                    <h3 class="stat-title">Total Hashtags</h3>
+                    <h3 class="stat-title">Total Images Processed</h3>
                     <p class="stat-value">1,234,567</p>
-                    <p class="stat-change"><i class="fas fa-arrow-up"></i> 23% vs last month</p>
+                    <p class="stat-change"><i class="fas fa-arrow-up"></i> 15% vs last month</p>
                 </div>
                 <div class="stat-card">
-                    <h3 class="stat-title">Engagement Rate</h3>
-                    <p class="stat-value">5.67%</p>
-                    <p class="stat-change"><i class="fas fa-arrow-up"></i> 7% vs last month</p>
+                    <h3 class="stat-title">Unique Tags Generated</h3>
+                    <p class="stat-value">98,765</p>
+                    <p class="stat-change"><i class="fas fa-arrow-up"></i> 8% vs last month</p>
+                </div>
+                <div class="stat-card">
+                    <h3 class="stat-title">Average Tags per Image</h3>
+                    <p class="stat-value">7.5</p>
+                    <p class="stat-change"><i class="fas fa-arrow-up"></i> 5% vs last month</p>
+                </div>
+                <div class="stat-card">
+                    <h3 class="stat-title">Classification Accuracy</h3>
+                    <p class="stat-value">95.6%</p>
+                    <p class="stat-change"><i class="fas fa-arrow-up"></i> 2% vs last month</p>
                 </div>
             </div>
-            <div class="chart-container mb-20">
-                <h2 class="chart-title">User Growth</h2>
-                <p>Chart placeholder - User growth over time</p>
+            <div class="chart-grid">
+                <div class="chart-container">
+                    <h2 class="chart-title">Daily Image Processing Volume</h2>
+                    <canvas id="imageProcessingChart"></canvas>
+                </div>
+                <div class="table-container">
+                    <h2 class="chart-title">Top Tags</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Rank</th>
+                                <th>Tag</th>
+                                <th>Occurrences</th>
+                                <th class="text-right">Accuracy</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>person</td>
+                                <td>789,456</td>
+                                <td class="text-right">98.2%</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>nature</td>
+                                <td>567,890</td>
+                                <td class="text-right">97.5%</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>building</td>
+                                <td>456,789</td>
+                                <td class="text-right">96.8%</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>animal</td>
+                                <td>345,678</td>
+                                <td class="text-right">95.9%</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>food</td>
+                                <td>234,567</td>
+                                <td class="text-right">94.7%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-            <div class="table-container">
-                <h2 class="chart-title">Top Hashtags</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Rank</th>
-                            <th>Hashtag</th>
-                            <th>Posts</th>
-                            <th class="text-right">Engagement</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>#summer</td>
-                            <td>1.2M</td>
-                            <td class="text-right">89%</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>#fashion</td>
-                            <td>980K</td>
-                            <td class="text-right">76%</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>#travel</td>
-                            <td>875K</td>
-                            <td class="text-right">82%</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>#food</td>
-                            <td>750K</td>
-                            <td class="text-right">71%</td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>#fitness</td>
-                            <td>620K</td>
-                            <td class="text-right">68%</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="print-section">
+                <h2>Print Reports</h2>
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle">
+                        Select Report Format
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item">PDF</a>
+                        <a href="#" class="dropdown-item">DOC</a>
+                        <a href="#" class="dropdown-item">CSV</a>
+                    </div>
+                </div>
             </div>
         </main>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
+
