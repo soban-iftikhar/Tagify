@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tagify Analytics Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">Tagify</div>
+            <nav>
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html" class="nav-link active"><i class="fas fa-home"></i> Dashboard</a></li>
+                    <li class="nav-item"><a href="analytics.html" class="nav-link"><i class="fas fa-chart-bar"></i> Analytics</a></li>
+                    <li class="nav-item"><a href="team.html" class="nav-link"><i class="fas fa-users"></i> Team</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-cog"></i> Settings</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-question-circle"></i> Help</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <header class="header">
+                <div class="search-bar">
+                    <input type="text" class="search-input" placeholder="Search...">
+                    <button class="btn btn-primary"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="user-menu">
+                    <button class="btn btn-primary"><i class="fas fa-bell"></i></button>
+                    <img src="https://via.placeholder.com/40" alt="User Avatar" class="user-avatar">
+                </div>
+            </header>
+            <h1 class="dashboard-title">Dashboard</h1>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3 class="stat-title">Total Users</h3>
+                    <p class="stat-value">34,567</p>
+                    <p class="stat-change"><i class="fas fa-arrow-up"></i> 12% vs last month</p>
+                </div>
+                <div class="stat-card">
+                    <h3 class="stat-title">Active Users</h3>
+                    <p class="stat-value">23,456</p>
+                    <p class="stat-change negative"><i class="fas fa-arrow-down"></i> 8% vs last month</p>
+                </div>
+                <div class="stat-card">
+                    <h3 class="stat-title">Total Hashtags</h3>
+                    <p class="stat-value">1,234,567</p>
+                    <p class="stat-change"><i class="fas fa-arrow-up"></i> 23% vs last month</p>
+                </div>
+                <div class="stat-card">
+                    <h3 class="stat-title">Engagement Rate</h3>
+                    <p class="stat-value">5.67%</p>
+                    <p class="stat-change"><i class="fas fa-arrow-up"></i> 7% vs last month</p>
+                </div>
+            </div>
+            <div class="chart-container mb-20">
+                <h2 class="chart-title">User Growth</h2>
+                <p>Chart placeholder - User growth over time</p>
+            </div>
+            <div class="table-container">
+                <h2 class="chart-title">Top Hashtags</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Hashtag</th>
+                            <th>Posts</th>
+                            <th class="text-right">Engagement</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>#summer</td>
+                            <td>1.2M</td>
+                            <td class="text-right">89%</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>#fashion</td>
+                            <td>980K</td>
+                            <td class="text-right">76%</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>#travel</td>
+                            <td>875K</td>
+                            <td class="text-right">82%</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>#food</td>
+                            <td>750K</td>
+                            <td class="text-right">71%</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>#fitness</td>
+                            <td>620K</td>
+                            <td class="text-right">68%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

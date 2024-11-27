@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tagify Team</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">Tagify</div>
+            <nav>
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Dashboard</a></li>
+                    <li class="nav-item"><a href="analytics.html" class="nav-link"><i class="fas fa-chart-bar"></i> Analytics</a></li>
+                    <li class="nav-item"><a href="team.html" class="nav-link active"><i class="fas fa-users"></i> Team</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-cog"></i> Settings</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-question-circle"></i> Help</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <header class="header">
+                <div class="search-bar">
+                    <input type="text" class="search-input" placeholder="Search...">
+                    <button class="btn btn-primary"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="user-menu">
+                    <button class="btn btn-primary"><i class="fas fa-bell"></i></button>
+                    <img src="https://via.placeholder.com/40" alt="User Avatar" class="user-avatar">
+                </div>
+            </header>
+            <h1 class="dashboard-title">Team</h1>
+            <div class="table-container">
+                <h2 class="chart-title">Team Members</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Role</th>
+                            <th>Email</th>
+                            <th class="text-right">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>John Doe</td>
+                            <td>Admin</td>
+                            <td>john@example.com</td>
+                            <td class="text-right">
+                                <button class="btn btn-primary"><i class="fas fa-edit"></i></button>
+                                <button class="btn btn-primary"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Jane Smith</td>
+                            <td>Editor</td>
+                            <td>jane@example.com</td>
+                            <td class="text-right">
+                                <button class="btn btn-primary"><i class="fas fa-edit"></i></button>
+                                <button class="btn btn-primary"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Bob Johnson</td>
+                            <td>Viewer</td>
+                            <td>bob@example.com</td>
+                            <td class="text-right">
+                                <button class="btn btn-primary"><i class="fas fa-edit"></i></button>
+                                <button class="btn btn-primary"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
