@@ -1,11 +1,66 @@
 document.addEventListener('DOMContentLoaded', function() {
     const darkModeToggle = document.getElementById('darkModeToggle');
     const body = document.body;
+    const userProfileToggle = document.getElementById('userProfileToggle');
+    const userProfileModal = document.getElementById('userProfileModal');
+    const notificationsToggle = document.getElementById('notificationsToggle');
+    const notificationsModal = document.getElementById('notificationsModal');
+    const settingsLink = document.getElementById('settingsLink');
+    const settingsModal = document.getElementById('settingsModal');
+    const settingsForm = document.getElementById('settingsForm');
 
+    // Dark mode toggle
     darkModeToggle.addEventListener('click', function() {
         body.classList.toggle('dark-mode');
         const isDarkMode = body.classList.contains('dark-mode');
         darkModeToggle.innerHTML = isDarkMode ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+        localStorage.setItem('darkMode', isDarkMode);
+    });
+
+    // Check for saved dark mode preference
+    if (localStorage.getItem('darkMode') === 'true') {
+        body.classList.add('dark-mode');
+        darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+    }
+
+    // User profile modal
+    userProfileToggle.addEventListener('click', function() {
+        userProfileModal.style.display = 'block';
+    });
+
+    // Notifications modal
+    notificationsToggle.addEventListener('click', function() {
+        notificationsModal.style.display = 'block';
+    });
+
+    // Settings modal
+    settingsLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        settingsModal.style.display = 'block';
+    });
+
+    // Close modals
+    const closeButtons = document.getElementsByClassName('close');
+    for (let i = 0; i < closeButtons.length; i++) {
+        closeButtons[i].addEventListener('click', function() {
+            this.closest('.modal').style.display = 'none';
+        });
+    }
+
+    // Close modals when clicking outside
+    window.addEventListener('click', function(event) {
+        if (event.target.classList.contains('modal')) {
+            event.target.style.display = 'none';
+        }
+    });
+
+    // Settings form submission
+    settingsForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        // Here you would typically send the form data to a server
+        // For this example, we'll just show an alert
+        alert('Settings saved successfully!');
+        settingsModal.style.display = 'none';
     });
 
     // Chart configurations
@@ -107,41 +162,82 @@ document.addEventListener('DOMContentLoaded', function() {
     // Category Chart (analytics.html)
     const categoryCtx = document.getElementById('categoryChart');
     if (categoryCtx) {
+        const categoryData = {
+            labels: ['Landscape', 'Portrait', 'Still Life', 'Action', 'Abstract', 'Other'],
+            datasets: [{
+                label: 'Image Categories',
+                data: [30, 25, 15, 10, 10, 10],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.8)',
+                    'rgba(54, 162, 235, 0.8)',
+                    'rgba(255, 206, 86, 0.8)',
+                    'rgba(75, 192, 192, 0.8)',
+                    'rgba(153, 102, 255, 0.8)',
+                    'rgba(255, 159, 64, 0.8)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        };
+
         new Chart(categoryCtx, {
             type: 'doughnut',
-            data: {
-                labels: ['Landscape', 'Portrait', 'Still Life', 'Action', 'Abstract', 'Other'],
-                datasets: [{
-                    label: 'Image Categories',
-                    data: [30, 25, 15, 10, 10, 10],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.8)',
-                        'rgba(54, 162, 235, 0.8)',
-                        'rgba(255, 206, 86, 0.8)',
-                        'rgba(75, 192, 192, 0.8)',
-                        'rgba(153, 102, 255, 0.8)',
-                        'rgba(255, 159, 64, 0.8)'
-                    ],
-                    borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
+            data: categoryData,
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
                 plugins: {
                     legend: {
-                        position: 'right',
+                        display: false,
                     },
                 }
             }
+        });
+
+        // Generate custom legend
+        const legendContainer = document.getElementById('categoryLegend');
+        if (legendContainer) {
+            legendContainer.innerHTML = ''; // Clear existing legend items
+            categoryData.labels.forEach((label, index) => {
+                const legendItem = document.createElement('div');
+                legendItem.classList.add('legend-item');
+
+                const colorBox = document.createElement('span');
+                colorBox.classList.add('legend-color');
+                colorBox.style.backgroundColor = categoryData.datasets[0].backgroundColor[index];
+
+                const labelText = document.createElement('span');
+                labelText.textContent = label;
+
+                legendItem.appendChild(colorBox);
+                legendItem.appendChild(labelText);
+                legendContainer.appendChild(legendItem);
+            });
+        }
+    }
+
+    // Print functionality for analytics page
+    const printOptions = document.querySelectorAll('.dropdown-item');
+    const successMessage = document.getElementById('successMessage');
+
+    if (printOptions.length > 0 && successMessage) {
+        printOptions.forEach(option => {
+            option.addEventListener('click', function(e) {
+                e.preventDefault();
+                const format = this.textContent;
+                successMessage.textContent = `Report printed successfully in ${format} format`;
+                successMessage.style.display = 'block';
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 3000);
+            });
         });
     }
 });

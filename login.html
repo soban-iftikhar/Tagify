@@ -5,26 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tagify Login</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="login.css">
 </head>
 <body>
+<div class="login-page">
     <div class="login-container">
         <div class="login-card">
             <h1 class="login-logo">Tagify</h1>
-            <form class="login-form" action="index.html">
-                <div class="form-group">
-                    <label for="username">Username</label>
-                    <input type="text" id="username" name="username" required>
+            <form id="loginForm" class="login-form">
+                <div class="login-form-group">
+                    <label class="login-label" for="username">Username</label>
+                    <input class="login-input" type="text" id="username" name="username" required>
                 </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password" required>
+                <div class="login-form-group">
+                    <label class="login-label" for="password">Password</label>
+                    <input class="login-input" type="password" id="password" name="password" required>
                 </div>
-                <button type="submit" class="btn btn-primary btn-block">Log In</button>
+                <button class="login-button" type="submit">Log In</button>
             </form>
             <p class="login-footer">Don't have an account? <a href="#">Sign up</a></p>
         </div>
     </div>
+</div>
+<script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        // Here you would typically validate the credentials
+        // For this example, we'll just redirect to the dashboard
+        window.location.href = 'index.html';
+    });
+</script>
 </body>
 </html>
+
