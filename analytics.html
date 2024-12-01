@@ -34,7 +34,7 @@
                 <button id="darkModeToggle" class="btn btn-primary"><i class="fas fa-moon"></i></button>
                 <button id="notificationsToggle" class="btn btn-primary"><i class="fas fa-bell"></i></button>
                 <div class="user-profile">
-                    <img src="https://via.placeholder.com/40" alt="User Avatar" class="user-avatar" id="userProfileToggle">
+                    <i class="fas fa-user user-avatar" id="userProfileToggle"></i>
                 </div>
             </div>
         </header>
@@ -65,10 +65,12 @@
                     <h2 class="chart-title">Classification Accuracy Over Time</h2>
                     <canvas id="accuracyChart"></canvas>
                 </div>
-                <div class="chart-container">
-                    <h2 class="chart-title">Image Categories</h2>
-                    <canvas id="categoryChart"></canvas>
-                    <div id="categoryLegend" class="chart-legend"></div>
+                <div class="chart-container doughnut">
+                    <h2 class="chart-title">Top Image Categories</h2>
+                    <div class="chart-content">
+                        <canvas id="categoryChart"></canvas>
+                        <div id="categoryLegend" class="chart-legend"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -79,8 +81,8 @@
         <span class="close">&times;</span>
         <h2>User Profile</h2>
         <img src="https://via.placeholder.com/100" alt="User Avatar" class="user-avatar-large">
-        <p><strong>Name:</strong> John Doe</p>
-        <p><strong>Email:</strong> john.doe@example.com</p>
+        <p><strong>Name:</strong> Soban Iftikhar</p>
+        <p><strong>Email:</strong> sobaniftikhar1098@gmail.com</p>
         <p><strong>Role:</strong> Administrator</p>
         <button class="btn btn-primary">Edit Profile</button>
     </div>
